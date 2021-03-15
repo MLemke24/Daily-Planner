@@ -1,37 +1,48 @@
 var timeKey, value, valueText, block
 
+
+
 $(document).ready(function(){
   
   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm a"))
   let children = $("tbody").children()
 
- 
-    if (localStorage.length > 0) {
-      block = JSON.parse(localStorage.getItem(timeKey));
-      console.log(block)
-     
-    }
 
-  
+
+  })
 
   $("button").on("click", function(){
 
-    timeKey = $(this).parent().attr("id")
-    console.log(timeKey)
+   var timeKey = $(this).parent().attr("id")
+    // console.log(timeKey)
   
     value = $(this).closest("tr");
     valueText = value.find("td:eq(0)").text();
-    console.log(valueText)
+    // console.log(valueText)
 
-    localStorage.setItem(timeKey, JSON.stringify(valueText))
-
+    block = localStorage.setItem(timeKey, valueText)
+    
 
   })
+  $("#9 .toDo").val(localStorage.getItem("9"))
 
+//   for (let i = 0; i < localStorage.length; i++) {
+//     var set = localStorage.key(i);
+//     console.log(set)
+//     if (set === timeKey) {
+//     JSON.parse(localStorage.getItem(timeKey))
+//     }
+// }
+
+
+  
+
+ 
+ 
   
    
    
-  })
+ 
 
 
 
@@ -56,10 +67,7 @@ $(document).ready(function(){
 
 //   for (let i = 0; i < children.length; i++)  {
 //     // grab id to put in local storage
-//     var childTr = children.eq(i)
-//     // console.log(childTr)
-//     var block = childTr[0].id
-//     // console.log(block)
+//     
     
     
 
