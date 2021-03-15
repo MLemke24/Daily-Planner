@@ -1,7 +1,6 @@
 var timeKey, value, valueText, block
 
 
-
 $(document).ready(function(){
   
   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm a"))
@@ -16,29 +15,32 @@ $(document).ready(function(){
    var timeKey = $(this).parent().attr("id")
     // console.log(timeKey)
   
+  
+
     value = $(this).closest("tr");
     valueText = value.find("td:eq(0)").text();
     // console.log(valueText)
 
-    block = localStorage.setItem(timeKey, valueText)
+    localStorage.setItem(timeKey, valueText)
     
 
   })
-  $("#9 .toDo").val(localStorage.getItem("9"))
 
-//   for (let i = 0; i < localStorage.length; i++) {
-//     var set = localStorage.key(i);
-//     console.log(set)
-//     if (set === timeKey) {
-//     JSON.parse(localStorage.getItem(timeKey))
-//     }
-// }
+$(document).ready(function() { 
+  for (let i = 0; i < localStorage.length; i++) {
+    
+    var set = localStorage.key(i);
+    console.log(set)
+    
+    var reload = localStorage.getItem( localStorage.key( i ) )
+   console.log(reload)
+    
+  }
 
-
-  
+})
 
  
- 
+
   
    
    
