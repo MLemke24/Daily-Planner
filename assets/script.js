@@ -26,14 +26,18 @@ $(document).ready(function(){
 
   })
 
+  timeKey()
+  console.log(timeKey)
+  valueText()
+
 $(document).ready(function() { 
   for (let i = 0; i < localStorage.length; i++) {
     
     var set = localStorage.key(i);
-    console.log(set)
+    // console.log(set)
     
     var reload = localStorage.getItem( localStorage.key( i ) )
-   console.log(reload)
+  //  console.log(reload)
     
   }
 
