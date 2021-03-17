@@ -1,8 +1,9 @@
   $(document).ready(function(){
-  
+  // Day and hour 
   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm a"))
   let children = $("tbody").children()
 
+    // Load schedule from local storage
 $("tbody").find("tr").each(function() { 
  document.getElementById("8-text").innerHTML = (localStorage.getItem("8"));
  document.getElementById("9-text").innerHTML = (localStorage.getItem("9"));
@@ -17,7 +18,7 @@ $("tbody").find("tr").each(function() {
 
  
   })
-
+    //  Save Button
   $("button").on("click", function(timeKey, valueText){
     var timeKey = $(this).parent().attr("id");
     // console.log(timeKey)
@@ -25,14 +26,14 @@ $("tbody").find("tr").each(function() {
     var valueText = value.find("td:eq(0)").text();
     // console.log(valueText)
 
-
+    // Set things in local storage
    localStorage.setItem(timeKey, valueText)
     
 
   })
 })
 
-// set color blocks
+// set color blocks via time of day
 
 let TimeOfDay = function () {
   let currentTime = moment().hours()
