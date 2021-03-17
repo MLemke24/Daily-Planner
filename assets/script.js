@@ -34,14 +34,14 @@ $("tbody").find("tr").each(function() {
     
 
   })
-
+  // color blocks for time of day
   let TimeOfDay = function () {
     let currentTime = moment().hours()
-    console.log(currentTime)
+    
   
   $(".tasks").each(function(){
     let pastTime = parseInt($(this).attr("id"))
-    // console.log(pastTime)
+  
     if(pastTime < currentTime) {
       $(this).addClass("table-dark")
     } else if (pastTime === currentTime){
