@@ -16,6 +16,9 @@ $("tbody").find("tr").each(function() {
  document.getElementById("16-text").innerHTML = (localStorage.getItem("16"));
  document.getElementById("17-text").innerHTML = (localStorage.getItem("17"));
 
+ // set color blocks via time of day
+
+
  
   })
     //  Save Button
@@ -31,22 +34,32 @@ $("tbody").find("tr").each(function() {
     
 
   })
-})
 
-// set color blocks via time of day
-
-let TimeOfDay = function () {
-  let currentTime = moment().hours()
-
-$(".tasks").each(function(){
-  let pastTime = parseInt($(this).attr("id"))
-  console.log(pastTime)
-  if(pastTime < currentTime) {
-    $(this).addClass("table-dark")
-  }
-})
-
+  let TimeOfDay = function () {
+    let currentTime = moment().hours()
+    console.log(currentTime)
+  
+  $(".tasks").each(function(){
+    let pastTime = parseInt($(this).attr("id"))
+    // console.log(pastTime)
+    if(pastTime < currentTime) {
+      $(this).addClass("table-dark")
+    } else if (pastTime === currentTime){
+      $(this).removeClass("table-dark")
+      $(this).addClass("table-primary")
+    } else if (pastTime > currentTime){
+      $(this).removeClass("table-dark table-primary")
+      $(this).addClass("table-success")
     }
+  })
+  
+      }
+
+    TimeOfDay()
+
+})
+
+
 
   
    
